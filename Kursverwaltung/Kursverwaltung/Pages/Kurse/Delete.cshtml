@@ -1,0 +1,40 @@
+﻿@page
+@model Kursverwaltung.Pages.Kurse.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Kurs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kurs.Kursnummer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Kurs.Kursnummer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Kurs.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Kurs.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Kurs.Beschreibung)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Kurs.Beschreibung)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Kurs.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

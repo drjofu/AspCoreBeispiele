@@ -1,0 +1,18 @@
+﻿@model CheckViewModel
+
+@{
+  ViewData["Title"] = "Check";
+}
+
+<h2>Check</h2>
+
+<h2>Auswertung</h2>
+<h3>@Model.Meldung</h3>
+@if (Model.EsGehtWeiter)
+{
+  <a asp-action="./Index" class="btn btn-default">OK</a>
+}
+else
+{
+  <a asp-action="./Index" class="btn btn-default">Neues Spiel</a>
+}

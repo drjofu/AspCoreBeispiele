@@ -1,0 +1,29 @@
+﻿@page 
+@model KurslisteModel
+@{
+  ViewData["Title"] = "Kursliste";
+}
+
+<h2>Kursliste</h2>
+<cache   expires-after="@TimeSpan.FromSeconds(10)"> Zuletzt aktualisiert @DateTime.Now.ToString(). </cache>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Beschreibung</th>
+      <th>Aktion</th>
+    </tr>
+  </thead>
+  @foreach (var kurs in Model.Kurse)
+  {
+    <tr>
+      <td>@kurs.Id</td>
+      <td>@kurs.Name</td>
+      <td>@kurs.Beschreibung</td>
+      <td><a asp-page="Kursdetails" asp-route-id="@kurs.Id">Details</a></td>
+      <td>@Html.ActionLink("Details", "index", new { id = kurs.Id })</td>
+    </tr>
+  }
+</table>

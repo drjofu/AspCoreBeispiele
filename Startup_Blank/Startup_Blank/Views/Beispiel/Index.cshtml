@@ -1,0 +1,12 @@
+﻿@model Kurs
+
+@{
+    ViewData["Title"] = "Kursbeschreibung";
+}
+
+<div>Kurs Nr.: @Model.Id</div>
+<div><label>Name:</label> @Model.Name</div>
+<div><label>Beschreibung: </label> @Model.Beschreibung</div>
+<div>
+  <a asp-action="kurse">Alle Kurse</a>
+</div>

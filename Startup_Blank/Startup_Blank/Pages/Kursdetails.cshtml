@@ -1,0 +1,14 @@
+﻿@page "{id:int?}"
+@model Startup_Blank.Pages.KursdetailsModel
+@{
+  ViewData["Title"] = "Kursdetails";
+}
+
+<h2>Kursdetails</h2>
+
+<div>Kurs Nr.: @Model.Kurs.Id</div>
+<div><label>Name:</label> @Model.Kurs.Name</div>
+<div><label>Beschreibung: </label> @Model.Kurs.Beschreibung</div>
+<div>
+  <a asp-action="kurse">Alle Kurse</a>
+</div>

@@ -1,0 +1,36 @@
+﻿@page
+@model RazorPagesStartup.Pages.SpielVariante2.IndexModel
+@{
+  ViewData["Title"] = "WWM";
+}
+
+<form method="post">
+  <h2>@Model.Aufgabe.Frage</h2>
+  <input type="hidden" value="@Model.Aufgabe.Id" name="aufgabeId" />
+  <div>
+    <input type="radio" value="A" name="antwort" id="antwort1" />
+    <label for="antwort1">@Model.Aufgabe.Antwort1</label>
+  </div>
+  <div>
+    <input type="radio" value="B" name="antwort" id="antwort2" />
+    <label for="antwort2">@Model.Aufgabe.Antwort2</label>
+  </div>
+  <div>
+    <input type="radio" value="C" name="antwort" id="antwort3" />
+    <label for="antwort3">@Model.Aufgabe.Antwort3</label>
+  </div>
+  <div>
+    <input type="radio" value="D" name="antwort" id="antwort4" />
+    <label for="antwort4">@Model.Aufgabe.Antwort4</label>
+  </div>
+
+  <button type="submit" class="btn btn-default" asp-page="check">Antworten</button>
+  <button type="submit" class="btn btn-default" asp-page="ende">Aufgeben</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Meldung))
+{
+  <div>
+    letzte Meldung: @Model.Meldung
+  </div>
+}

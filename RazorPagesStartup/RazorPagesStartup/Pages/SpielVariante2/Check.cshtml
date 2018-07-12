@@ -1,0 +1,17 @@
+﻿@page
+@model RazorPagesStartup.Pages.SpielVariante2.CheckModel
+@{
+    ViewData["Title"] = "Check";
+}
+
+<h2>Auswertung</h2>
+<h3>@Model.Meldung</h3>
+@if(Model.EsGehtWeiter)
+{
+<a asp-page="./Index"  class="btn btn-default">OK</a>
+}
+else
+{
+<a asp-page="./Index" class="btn btn-default">Neues Spiel</a>
+}
+

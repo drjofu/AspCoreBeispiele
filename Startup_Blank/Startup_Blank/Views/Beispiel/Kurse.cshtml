@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Kurs>
+
+@{
+    ViewData["Title"] = "Kurse";
+}
+
+<h2>@Model.Count() Kurse</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Beschreibung</th>
+      <th>Aktion</th>
+    </tr>
+  </thead>
+  @foreach (var kurs in Model)
+  {
+  <tr>
+    <td>@kurs.Id</td>
+    <td>@kurs.Name</td>
+    <td>@kurs.Beschreibung</td>
+    <td>@Html.ActionLink("Details","index", new  {id=kurs.Id })</td>
+  </tr>
+  }
+</table>

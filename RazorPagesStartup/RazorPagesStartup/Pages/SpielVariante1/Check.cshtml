@@ -1,0 +1,17 @@
+﻿@page
+@model RazorPagesStartup.Pages.SpielVariante1.CheckModel
+@{
+    ViewData["Title"] = "Check";
+}
+
+<h2>Auswertung</h2>
+<h3>@Model.Meldung</h3>
+@if(Model.Schwierigkeitsgrad>0)
+{
+<a asp-page="./Index" asp-route-schwierigkeitsgrad="@Model.Schwierigkeitsgrad" class="btn btn-default">OK</a>
+}
+else
+{
+<a asp-page="./Index" class="btn btn-default">Neues Spiel</a>
+}
+
