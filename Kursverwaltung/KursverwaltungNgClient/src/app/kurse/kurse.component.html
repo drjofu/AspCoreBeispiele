@@ -1,0 +1,13 @@
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let kurs of kurse">
+    <td>{{kurs.name}}</td>
+    <td>{{kurs.beschreibung}}</td>
+  </tr>
+</table>

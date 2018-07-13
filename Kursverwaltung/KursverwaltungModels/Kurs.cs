@@ -7,6 +7,11 @@ namespace Kursverwaltung.Models
 {
   public class Kurs
   {
+    public Kurs()
+    {
+
+    }
+
     public int Id { get; set; }
     public int Kursnummer { get; set; }
     public string Name { get; set; }

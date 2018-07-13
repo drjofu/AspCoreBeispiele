@@ -17,6 +17,11 @@ namespace Kursverwaltung.Models
     {
     }
 
+    public KursverwaltungContext()
+    {
+
+    }
+
     public DbSet<Kursverwaltung.Models.Kurs> Kurs { get; set; }
 
     public DbSet<Kursverwaltung.Models.Termin> Termin { get; set; }
