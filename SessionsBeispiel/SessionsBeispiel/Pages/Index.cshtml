@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Erster Aufruf: @Model.Startzeit?.ToLongTimeString()</h1>
+
+<form method="post" >
+<div>
+  Name: <input asp-for="Name" />
+</div>
+  <div>
+    <button type="submit">Speichern</button>
+  </div>
+</form>
