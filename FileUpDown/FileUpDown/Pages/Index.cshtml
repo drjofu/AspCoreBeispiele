@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+}
+
+<form method="post" enctype="multipart/form-data">
+  <div>
+    File upload:
+    <input type="file" multiple="multiple" accept="image/*" asp-for="FileToUpload" />
+  </div>
+  <button type="submit">Speichern</button>
+</form>
+
+<div class="row">
+  @foreach (var item in Model.GetFilenames())
+  {
+    @*<div class="col-md-2">
+        <img src="/api/imagedownload?name=@item" style="margin:4px" class="img img-rounded img-responsive" />
+      </div>*@
+    <div class="col-md-2">
+      <a asp-route="FileRoute" asp-route-name="@item" download="@item">
+        <img src="@Url.Link("FileRoute", new { name = item })" style="margin:4px" class="img img-rounded img-responsive" />
+      </a>
+    </div>
+  }
+</div>
