@@ -1,18 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DbBeispiel.Data;
+using DbBeispiel.Models;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DbBeispiel.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using DbBeispiel.Models;
 
 namespace DbBeispiel
 {
@@ -30,8 +25,8 @@ namespace DbBeispiel
     {
       services.Configure<CookiePolicyOptions>(options =>
       {
-              // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-              options.CheckConsentNeeded = context => true;
+        // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+        options.CheckConsentNeeded = context => true;
         options.MinimumSameSitePolicy = SameSiteMode.None;
       });
 
@@ -53,7 +48,11 @@ namespace DbBeispiel
         options.UseSqlServer(Configuration.GetConnectionString("Mondial"));
       });
 
-
+      // https://www.c-sharpcorner.com/article/claim-based-and-policy-based-authorization-with-asp-net-core-2-1/
+      services.AddAuthorization(options =>
+      {
+        options.AddPolicy(MyPolicyNames.DerDarfDas, policy => policy.RequireClaim("dings","bums"));
+      });
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
     }
