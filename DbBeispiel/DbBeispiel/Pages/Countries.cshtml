@@ -1,0 +1,27 @@
+﻿@page
+@model DbBeispiel.Pages.CountriesModel
+@{
+    ViewData["Title"] = "Countries";
+}
+
+<h2>Countries</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <td>Car code</td>
+      <td>Area</td>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var country in Model.Countries)
+    {
+    <tr>
+      <td>@country.Name</td>
+      <td>@country.CarCode</td>
+      <td>@country.Area</td>
+    </tr>
+    }
+  </tbody>
+</table>

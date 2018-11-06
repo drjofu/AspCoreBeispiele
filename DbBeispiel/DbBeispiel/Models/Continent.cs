@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 namespace DbBeispiel.Models
 {
-    public partial class Continents
+    public partial class Continent
     {
-        public Continents()
+        public Continent()
         {
-            Countries = new HashSet<Countries>();
+            Countries = new HashSet<Country>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
         public int Area { get; set; }
 
-        public ICollection<Countries> Countries { get; set; }
+        public ICollection<Country> Countries { get; set; }
     }
 }

@@ -16,7 +16,7 @@
     @foreach (var continent in Model.Continents)
     {
       <tr>
-        <td>@continent.Name</td>
+        <td><a asp-page="countries" asp-route-continentId="@continent.Id">@continent.Name</a> </td>
         <td>@continent.Area</td>
       </tr>
     }

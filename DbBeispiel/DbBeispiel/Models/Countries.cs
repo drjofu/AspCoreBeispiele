@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace DbBeispiel.Models
 {
-    public partial class Countries
+    public partial class Country
     {
-        public Countries()
+        public Country()
         {
             Cities = new HashSet<Cities>();
         }
@@ -19,7 +19,7 @@ namespace DbBeispiel.Models
         public DateTime? IndependenceDate { get; set; }
         public int ContinentId { get; set; }
 
-        public Continents Continent { get; set; }
+        public Continent Continent { get; set; }
         public ICollection<Cities> Cities { get; set; }
     }
 }

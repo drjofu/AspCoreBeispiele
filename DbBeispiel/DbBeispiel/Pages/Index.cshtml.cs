@@ -21,7 +21,7 @@ namespace DbBeispiel.Pages
       this.mondialCore2Context = mondialCore2Context;
     }
 
-    public List<Continents> Continents { get; private set; }
+    public List<Continent> Continents { get; private set; }
 
     public void OnGet()
     {

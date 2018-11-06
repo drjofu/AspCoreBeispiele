@@ -16,8 +16,8 @@ namespace DbBeispiel.Models
         }
 
         public virtual DbSet<Cities> Cities { get; set; }
-        public virtual DbSet<Continents> Continents { get; set; }
-        public virtual DbSet<Countries> Countries { get; set; }
+        public virtual DbSet<Continent> Continents { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -39,7 +39,7 @@ namespace DbBeispiel.Models
                     .HasForeignKey(d => d.CountryId);
             });
 
-            modelBuilder.Entity<Countries>(entity =>
+            modelBuilder.Entity<Country>(entity =>
             {
                 entity.HasIndex(e => e.ContinentId);
 
