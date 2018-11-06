@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DbBeispiel.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -27,6 +28,8 @@ namespace DbBeispiel.Pages
     {
       this.Continents = mondialCore2Context.Continents.ToList();
       var t = this.User.FindFirst("dings");
+
+      HttpContext.Session.SetInt32("x", 42);
     }
   }
 }

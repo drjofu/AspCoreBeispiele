@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace DbBeispiel
 {
@@ -55,6 +56,15 @@ namespace DbBeispiel
       });
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+      services.AddMemoryCache();
+
+      services.AddSession(options =>
+      {
+        // Set a short timeout for easy testing.
+        options.IdleTimeout = TimeSpan.FromSeconds(10);
+        options.Cookie.HttpOnly = true;
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,10 +80,10 @@ namespace DbBeispiel
         app.UseExceptionHandler("/Error");
         app.UseHsts();
       }
-
       app.UseHttpsRedirection();
       app.UseStaticFiles();
       app.UseCookiePolicy();
+      app.UseSession();
 
       app.UseAuthentication();
 

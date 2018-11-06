@@ -1,4 +1,5 @@
 ﻿using DbBeispiel.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace DbBeispiel.Pages
     public void OnGet(int continentId)
     {
       this.Countries = this.mondial.Countries.Where(c => c.ContinentId == continentId).ToList();
+      int x = HttpContext.Session.GetInt32("x")??0;
     }
   }
 }
